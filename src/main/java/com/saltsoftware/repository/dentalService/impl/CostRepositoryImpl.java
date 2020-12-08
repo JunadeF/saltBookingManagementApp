@@ -60,7 +60,7 @@ import java.util.Set;
 ///removes a cost
 
     public boolean delete(String costID){
-        Cost cost = read(String costID); {
+        Cost cost = read(costID); {
             if (cost != null);
             this.CostDB.remove(cost);
 
