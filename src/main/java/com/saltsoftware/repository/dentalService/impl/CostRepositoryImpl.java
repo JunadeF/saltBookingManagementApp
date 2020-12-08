@@ -18,7 +18,7 @@ import java.util.Set;
 
     ///Constructor
     public CostRepositoryImpl(){
-    this.CostDB = new HashMap<>();
+    this.CostDB = (Set<Cost>) new HashMap<Object, Object>();
 }
 
     public static CostRepository getCostRepository(){
