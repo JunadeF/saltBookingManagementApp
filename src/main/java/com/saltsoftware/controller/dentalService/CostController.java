@@ -1,12 +1,8 @@
 package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
-import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.dentalService.CostFactory;
-import com.saltsoftware.factory.payment.PatientPaymentTypeFactory;
 import com.saltsoftware.service.dentalService.CostService;
-import com.saltsoftware.service.dentalService.impl.CostServiceImpl;
-import com.saltsoftware.service.payment.impl.PatientPaymentTypeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,14 +16,14 @@ import java.util.Set;
  * Class desc: CostController
  *
  */
-@CrossOrigin(origins = "http://localhost:4200")
-@RestController
-@RequestMapping("/cost")
-public class CostController {
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RestController
+    @RequestMapping("/cost")
+    public class CostController {
     //injecting the constructor, calling cost type service
     @Autowired
 
-    private CostServiceImpl costService;
+    private CostService costService;
 
 
     @PostMapping("/create")
