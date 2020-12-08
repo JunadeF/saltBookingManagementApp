@@ -20,7 +20,7 @@ import java.util.Set;
  * Class desc: CostController
  *
  */
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/cost")
 public class CostController {
@@ -31,6 +31,7 @@ public class CostController {
 
 
     @PostMapping("/create")
+    @ResponseBody
     public Cost create(@RequestBody Cost cost){
         Cost newCost = CostFactory.createCost(cost.getCostID(), cost.getAmount());
         return costService.create(newCost);
@@ -45,12 +46,14 @@ public class CostController {
 
     //getall
     @GetMapping("/all")
+    @ResponseBody
     public Set<Cost> getAll(){
         return costService.getAll();
     }
 
     //update
     @PostMapping("/update")
+    @ResponseBody
     public Cost update(@RequestBody Cost cost){
         return costService.update(cost);
     }

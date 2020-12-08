@@ -6,7 +6,10 @@ package com.saltsoftware.entity.dentalService;
 
 
 import com.saltsoftware.entity.payment.PatientPaymentType;
+import org.hibernate.annotations.Table;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Entity;
@@ -16,6 +19,7 @@ public class Cost {
 
     //required parameters
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String costID;
     private double amount;
 
@@ -39,7 +43,7 @@ public class Cost {
                 '}';
     }
     //constructor
-    private Cost(Cost.Builder builder) {
+    private Cost(Builder builder) {
         this.costID = builder.costID;
         this.amount = builder.amount;
 
