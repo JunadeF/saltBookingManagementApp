@@ -10,4 +10,13 @@ import java.util.Set;
 @Repository
 public interface CostRepository extends JpaRepository<Cost, String> {
 
+    void update(Cost updated);
+
+    Cost create(Cost cost);
+
+    Cost read(String costID);
+
+    void delete(String costID);
+
+    boolean getAll();
 }

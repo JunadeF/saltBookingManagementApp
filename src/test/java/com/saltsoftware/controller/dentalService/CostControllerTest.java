@@ -1,9 +1,12 @@
 package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
+import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.factory.dentalService.CostFactory;
+import com.saltsoftware.factory.employee.EmployeeFactory;
 import com.saltsoftware.service.dentalService.impl.CostServiceImpl;
 import com.saltsoftware.service.dentalService.CostService;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -15,6 +18,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -31,20 +35,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CostControllerTest {
 
-    private Cost cost = CostFactory.createCost("145698",60.00);
+    private static Cost cost = CostFactory.createCost("145698",60.00);
     private static String SECURITY_USERNAME = "SUPER";
     private static String SECURITY_PASSWORD = "8888";
 
     @Autowired
-    private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/cost";
+    private TestRestTemplate restTemplate = null;
+    private String baseURL = "http://localhost:8080/cost/";
 
     //Test case for create method
     @Test
     public void a_create() {
         String url = baseURL + "create";
         System.out.println("URL: "+url);
-        System.out.println("Post data: "+cost);
+        System.out.println("Post data "+cost);
 
         ResponseEntity<Cost> postResponse = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
